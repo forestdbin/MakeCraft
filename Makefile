@@ -8,5 +8,8 @@ $(executable_hello) : $(executable_hello_objects)
 %.o : %.cpp
 	g++ -o $@ -c $^ -include common.h
 
+%.h.gch : %.h
+	g++ -x c++-header $^
+
 clean :
 	-@ rm -rf $(executable_hello_clean)
