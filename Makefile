@@ -5,5 +5,8 @@ executable_hello_clean = $(executable_hello) $(executable_hello_objects)
 $(executable_hello) : $(executable_hello_objects)
 	g++ -o $@ $^
 
+%.o : %.cpp
+	g++ -o $@ -c $^ -include common.h
+
 clean :
 	-@ rm -rf $(executable_hello_clean)

@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "greet.h"
 
 using namespace std;

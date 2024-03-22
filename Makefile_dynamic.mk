@@ -14,7 +14,7 @@ $(dynamic_library_greet_so) : $(dynamic_library_greet_objects)
 	g++ -shared -o $@ $^
 
 %.o : %.cpp
-	g++ -o $@ -c $^ -fPIC
+	g++ -o $@ -c $^ -include common.h -fPIC
 
 clean :
 	-@ rm -rf $(executable_hello_clean) $(dynamic_library_greet_clean)

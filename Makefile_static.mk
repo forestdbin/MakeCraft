@@ -13,5 +13,8 @@ $(executable_hello) : $(executable_hello_objects) $(static_library_greet_a)
 $(static_library_greet_a) : $(static_library_greet_objects)
 	ar crs $@ $(static_library_greet_objects)
 
+%.o : %.cpp
+	g++ -o $@ -c $^ -include common.h
+
 clean :
 	-@ rm -rf $(executable_hello_clean) $(static_library_greet_clean)
