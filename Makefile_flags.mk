@@ -1,8 +1,7 @@
 BUILD_TYPE ?= DEBUG
 
 # CFLAGS = -std=c11
-CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic \
-	-pthread -include $(common_header)
+CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -pthread
 
 LDFALGS = -pthread
 LDLIBS =
