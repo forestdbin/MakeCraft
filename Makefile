@@ -1,4 +1,5 @@
 include Makefile_compiler.mk
+include Makefile_flags.mk
 
 executable_hello = hello
 executable_hello_sources = $(wildcard *.cpp)
@@ -13,18 +14,18 @@ precompiled_common_header = $(common_header).gch
 build : $(precompiled_common_header) $(executable_hello)
 
 $(executable_hello) : $(executable_hello_objects)
-	$(CXX) -o $@ $^
+	$(CXX) -o $@ $(LDFALGS) $^ $(LDLIBS)
 
 %.o : %.cpp $(common_header)
-	$(CXX) -o $@ -c $< -include $(common_header)
+	$(CXX) -o $@ $(CXXFLAGS) -c $<
 
 %.h.gch : %.h
-	$(CXX) -x c++-header $^
+	$(CXX) -x c++-header $(CXXFLAGS) $^
 
 %.d : %.cpp
-	# $(CXX) -MM -MF $@ $^
+	# $(CXX) -MM -MF $@ $(CXXFLAGS) $^
 	@set -e; rm -f $@; \
-     $(CXX) -MM $< > $@.$$$$; \
+     $(CXX) -MM $(CXXFLAGS) $< > $@.$$$$; \
      sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
      rm -f $@.$$$$
 
