@@ -27,5 +27,8 @@ $(executable_hello) : $(executable_hello_objects)
 
 include $(executable_hello_depends)
 
+run : build
+	./$(executable_hello)
+
 clean :
 	-@ rm -rf $(precompiled_headers) $(executable_hello_clean)
