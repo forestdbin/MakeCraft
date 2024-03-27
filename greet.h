@@ -1,6 +1,7 @@
 #pragma once
 
-namespace greet
-{
+namespace greet {
+
 void say_hello();
+
 }

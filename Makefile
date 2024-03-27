@@ -17,6 +17,7 @@ executable_hello_clean = \
 .PHONY : all
 all : build
 
+.PHONY : build
 build : $(precompiled_headers) $(executable_hello)
 
 $(executable_hello) : $(executable_hello_objects)
@@ -27,8 +28,10 @@ $(executable_hello) : $(executable_hello_objects)
 
 include $(executable_hello_depends)
 
+.PHONY : run
 run : build
 	./$(executable_hello)
 
+.PHONY .SILENT : clean
 clean :
 	-@ rm -rf $(precompiled_headers) $(executable_hello_clean)
