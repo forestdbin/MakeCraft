@@ -3,22 +3,18 @@ USE_COMMON_HEADER ?= TRUE
 
 ifeq ($(USE_COMMON_HEADER),TRUE)
 
-common_header = common.h
-
-CXXFLAGS += -include $(common_header)
+CXXFLAGS += -include $($(project)_common_header)
 
 endif
 
 
 # pre compile header
-PRE_COMPILED_HEADER ?= TRUE
+PRE_COMPILE_HEADER ?= TRUE
 
-ifeq ($(PRE_COMPILED_HEADER),TRUE)
-
-precompiled_headers = $(common_header).gch # other *.h.gch
+ifeq ($(PRE_COMPILE_HEADER),TRUE)
 
 %.h.gch : %.h
-	$(CXX) -x c++-header $(subst $  -include $(common_header),,$(CXXFLAGS)) $^
+	$(CXX) -x c++-header $(subst $  -include $($(project)_common_header),,$(CXXFLAGS)) $^
 
 endif
 
