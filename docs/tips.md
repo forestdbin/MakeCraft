@@ -21,3 +21,7 @@ QEMU_LD_PREFIX=/usr/aarch64-linux-gnu/ LD_TRACE_LOADED_OBJECTS=1 ./hello
 ```
 sudo apt-get install lcov
 ```
+
+```
+sudo apt-get install gcovr
+```

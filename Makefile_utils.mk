@@ -10,6 +10,7 @@ help :
 	echo -e '\ttest'
 	echo -e '\tcoverage'
 	echo -e '\t\tlcov'
+	echo -e '\t\tgcovr'
 
 .PHONY .SILENT : dump
 dump :

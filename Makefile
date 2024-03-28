@@ -94,9 +94,19 @@ coverage : $($(project)_pre_compiled_headers) $($(project)_exe)
 
 .PHONY : lcov
 lcov : coverage
-	# lcov -c -d . -o lcov.info # --no-recursion
-	# lcov -l lcov.info
+	# lcov -c -d . -o lcov.info --rc lcov_branch_coverage=1 # --no-recursion
+	# lcov -l lcov.info --rc lcov_branch_coverage=1
 	# [ -d output ] && rm -rf output/* || mkdir output
-	# genhtml -o output lcov.info
+	# genhtml -o output lcov.info --branch-coverage
+	# python3 -m http.server --directory output
+	# rm -rf output
+
+.PHONY : gcovr
+gcovr : coverage
+	# gcovr -s --exclude-directories test
+	# gcovr -b
+	# gcovr -r . # -b
+	# [ -d output ] && rm -rf output/* || mkdir output
+	# gcovr -r . --html --html-details -o output/index.html
 	# python3 -m http.server --directory output
 	# rm -rf output
