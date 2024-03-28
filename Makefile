@@ -5,6 +5,7 @@ include Makefile_headers.mk
 include Makefile_libs.mk
 include Makefile_utils.mk
 
+
 project = hello
 $(project)_exe = $(project)
 
@@ -22,16 +23,19 @@ $(project)_clean = \
 	$($(project)_depends) \
 	$($(project)_pre_compiled_headers) \
 	$($(project)_test) \
-	$($(project)_test_objects)
+	$($(project)_test_objects) \
+	*.gcno *.gcda *.gcov
 
 $(project)_test = test_$(project)
 $(project)_test_sources = test_main.cpp
 $(project)_test_objects = $($(project)_test_sources:.cpp=.o)
 $(project)_depends += $($(project)_test_sources:.cpp=.d)
 
+
 .DEFAULT_GOAL := all
 .PHONY : all
 all : run
+
 
 .PHONY : build
 build : $($(project)_pre_compiled_headers) $($(project)_exe)
@@ -44,17 +48,21 @@ $($(project)_exe) : $($(project)_objects)
 
 include $($(project)_depends)
 
+
 .PHONY : run
 run : build
 	./$($(project)_exe)
+
 
 .PHONY .SILENT : clean
 clean :
 	-@ rm -rf $($(project)_clean)
 
+
 .PHONY : debug
 debug : build
 	gdb --silent $($(project)_exe)
+
 
 .PHONY : test
 test : $($(project)_pre_compiled_headers) $($(project)_test)
@@ -64,3 +72,22 @@ $($(project)_test) : CXXFLAGS += $(CXXFLAGS_GOOGLETEST)
 $($(project)_test) : LDLIBS += $(LDLIBS_GOOGLETEST)
 $($(project)_test) : $($(project)_test_objects)
 	$(CXX) -o $@ $(LDFALGS) $^ $(LDLIBS)
+
+
+.PHONY : coverage
+coverage : CXXFLAGS += --coverage
+coverage : LDLIBS += --coverage
+coverage : $($(project)_pre_compiled_headers) $($(project)_exe)
+	# ./$($(project)_exe)
+	# gcov
+	#  -k --use-colors
+	#  -l --long-file-names
+	#  -m --demangled-names
+	#  -r --relative-only
+	#  -n --no-output
+	#  -t --stdout
+	# gcov -k -l -m -r -n foo.cpp
+	# gcov -k -l -m -r -t foo.cpp | less -R
+	# gcov -k -l -m -r foo.cpp
+	# gcov -m -r foo.cpp
+	# view *.gcov

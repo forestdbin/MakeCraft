@@ -8,6 +8,7 @@ help :
 	echo -e '\t dump'
 	echo -e '\t debug'
 	echo -e '\t test'
+	echo -e '\t coverage'
 
 .PHONY .SILENT : dump
 dump :
