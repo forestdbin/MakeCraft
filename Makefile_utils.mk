@@ -1,14 +1,15 @@
 .PHONY .SILENT : help
 help :
 	echo make $(project)
-	echo -e '\t all'
-	echo -e '\t build'
-	echo -e '\t run'
-	echo -e '\t clean'
-	echo -e '\t dump'
-	echo -e '\t debug'
-	echo -e '\t test'
-	echo -e '\t coverage'
+	echo -e '\tall'
+	echo -e '\tbuild'
+	echo -e '\trun'
+	echo -e '\tclean'
+	echo -e '\tdump'
+	echo -e '\tdebug'
+	echo -e '\ttest'
+	echo -e '\tcoverage'
+	echo -e '\t\tlcov'
 
 .PHONY .SILENT : dump
 dump :

@@ -24,7 +24,7 @@ $(project)_clean = \
 	$($(project)_pre_compiled_headers) \
 	$($(project)_test) \
 	$($(project)_test_objects) \
-	*.gcno *.gcda *.gcov
+	*.gcno *.gcda *.gcov *.info
 
 $(project)_test = test_$(project)
 $(project)_test_sources = test_main.cpp
@@ -91,3 +91,12 @@ coverage : $($(project)_pre_compiled_headers) $($(project)_exe)
 	# gcov -k -l -m -r foo.cpp
 	# gcov -m -r foo.cpp
 	# view *.gcov
+
+.PHONY : lcov
+lcov : coverage
+	# lcov -c -d . -o lcov.info # --no-recursion
+	# lcov -l lcov.info
+	# [ -d output ] && rm -rf output/* || mkdir output
+	# genhtml -o output lcov.info
+	# python3 -m http.server --directory output
+	# rm -rf output
