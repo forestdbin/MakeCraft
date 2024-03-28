@@ -2,6 +2,7 @@ include Makefile_vars.mk
 include Makefile_compiler.mk
 include Makefile_flags.mk
 include Makefile_headers.mk
+include Makefile_libs.mk
 include Makefile_utils.mk
 
 project = hello
@@ -11,7 +12,7 @@ $(project)_common_header = common.h
 $(project)_pre_compile_headers = $($(project)_common_header) # $(wildcard *.h)
 $(project)_pre_compiled_headers = $($(project)_pre_compile_headers:.h=.h.gch)
 
-$(project)_sources = $(wildcard *.cpp)
+$(project)_sources = main.cpp greet.cpp
 $(project)_objects = $(patsubst %.cpp,%.o,$($(project)_sources))
 $(project)_depends = $($(project)_sources:.cpp=.d)
 
@@ -19,7 +20,14 @@ $(project)_clean = \
 	$($(project)_exe) \
 	$($(project)_objects) \
 	$($(project)_depends) \
-	$($(project)_pre_compiled_headers)
+	$($(project)_pre_compiled_headers) \
+	$($(project)_test) \
+	$($(project)_test_objects)
+
+$(project)_test = test_$(project)
+$(project)_test_sources = test_main.cpp
+$(project)_test_objects = $($(project)_test_sources:.cpp=.o)
+$(project)_depends += $($(project)_test_sources:.cpp=.d)
 
 .DEFAULT_GOAL := all
 .PHONY : all
@@ -47,3 +55,12 @@ clean :
 .PHONY : debug
 debug : build
 	gdb --silent $($(project)_exe)
+
+.PHONY : test
+test : $($(project)_pre_compiled_headers) $($(project)_test)
+	./$($(project)_test)
+
+$($(project)_test) : CXXFLAGS += $(CXXFLAGS_GOOGLETEST)
+$($(project)_test) : LDLIBS += $(LDLIBS_GOOGLETEST)
+$($(project)_test) : $($(project)_test_objects)
+	$(CXX) -o $@ $(LDFALGS) $^ $(LDLIBS)

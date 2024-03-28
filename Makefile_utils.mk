@@ -5,6 +5,8 @@ help :
 	echo -e '\t build'
 	echo -e '\t run'
 	echo -e '\t clean'
+	echo -e '\t debug'
+	echo -e '\t test'
 
 .PHONY .SILENT : dump
 dump :
@@ -24,6 +26,9 @@ dump :
 	echo PRE_COMPILE_HEADER: $(PRE_COMPILE_HEADER)
 	echo
 
+	echo USE_GOOGLE_TEST: $(USE_GOOGLE_TEST)
+	echo
+
 	echo project: $(project)
 	echo $(project)_exe: $($(project)_exe)
 	echo $(project)_common_header: $($(project)_common_header)
@@ -33,3 +38,8 @@ dump :
 	echo $(project)_objects: $($(project)_objects)
 	echo $(project)_depends: $($(project)_depends)
 	echo $(project)_clean: $($(project)_clean)
+	echo
+
+	echo $(project)_test: $($(project)_test)
+	echo $(project)_test_sources: $($(project)_test_sources)
+	echo $(project)_test_objects: $($(project)_test_objects)
