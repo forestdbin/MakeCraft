@@ -23,7 +23,7 @@ $(project)_clean = \
 
 .DEFAULT_GOAL := all
 .PHONY : all
-all : build
+all : run
 
 .PHONY : build
 build : $($(project)_pre_compiled_headers) $($(project)_exe)
@@ -43,3 +43,7 @@ run : build
 .PHONY .SILENT : clean
 clean :
 	-@ rm -rf $($(project)_clean)
+
+.PHONY : debug
+debug : build
+	gdb --silent $($(project)_exe)
