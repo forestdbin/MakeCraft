@@ -5,6 +5,7 @@ help :
 	echo -e '\t build'
 	echo -e '\t run'
 	echo -e '\t clean'
+	echo -e '\t dump'
 	echo -e '\t debug'
 	echo -e '\t test'
 
