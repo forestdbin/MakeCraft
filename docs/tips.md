@@ -25,3 +25,12 @@ sudo apt-get install lcov
 ```
 sudo apt-get install gcovr
 ```
+
+
+## Linter
+
+```
+sudo apt-get install clang-tidy
+sudo apt-get install clang-format
+sudo apt-get install clang-tools
+```

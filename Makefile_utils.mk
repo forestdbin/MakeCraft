@@ -12,6 +12,7 @@ help :
 	echo -e '\t\tlcov'
 	echo -e '\t\tgcovr'
 	echo -e '\tprofile'
+	echo -e '\tlint'
 
 .PHONY .SILENT : dump
 dump :

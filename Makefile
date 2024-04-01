@@ -119,3 +119,8 @@ profile : LDLIBS += -pg
 profile : $($(project)_pre_compiled_headers) $($(project)_exe)
 	# ./$($(project)_exe)
 	# gprof $($(project)_exe)
+
+
+.PHONY : lint
+lint :
+	# clang-tidy -checks=* *.cpp
