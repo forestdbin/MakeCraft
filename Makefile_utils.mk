@@ -11,6 +11,7 @@ help :
 	echo -e '\tcoverage'
 	echo -e '\t\tlcov'
 	echo -e '\t\tgcovr'
+	echo -e '\tprofile'
 
 .PHONY .SILENT : dump
 dump :

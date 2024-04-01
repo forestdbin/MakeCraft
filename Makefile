@@ -24,7 +24,8 @@ $(project)_clean = \
 	$($(project)_pre_compiled_headers) \
 	$($(project)_test) \
 	$($(project)_test_objects) \
-	*.gcno *.gcda *.gcov *.info
+	*.gcno *.gcda *.gcov *.info \
+	gmon.out gmon.sum
 
 $(project)_test = test_$(project)
 $(project)_test_sources = test_main.cpp
@@ -110,3 +111,11 @@ gcovr : coverage
 	# gcovr -r . --html --html-details -o output/index.html
 	# python3 -m http.server --directory output
 	# rm -rf output
+
+
+.PHONY : profile
+profile : CXXFLAGS += -pg
+profile : LDLIBS += -pg
+profile : $($(project)_pre_compiled_headers) $($(project)_exe)
+	# ./$($(project)_exe)
+	# gprof $($(project)_exe)
