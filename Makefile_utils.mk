@@ -13,6 +13,7 @@ help :
 	echo -e '\t\tgcovr'
 	echo -e '\tprofile'
 	echo -e '\tlint'
+	echo -e '\tformat'
 
 .PHONY .SILENT : dump
 dump :

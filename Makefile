@@ -25,7 +25,8 @@ $(project)_clean = \
 	$($(project)_test) \
 	$($(project)_test_objects) \
 	*.gcno *.gcda *.gcov *.info \
-	gmon.out gmon.sum
+	gmon.out gmon.sum \
+	*~ *.orig
 
 $(project)_test = test_$(project)
 $(project)_test_sources = test_main.cpp
@@ -124,3 +125,19 @@ profile : $($(project)_pre_compiled_headers) $($(project)_exe)
 .PHONY : lint
 lint :
 	# clang-tidy -checks=* *.cpp
+
+
+.PHONY : format
+format :
+	# indent
+	#   -gnu, --gnu-style
+	#   -kr, --k-and-r-style
+	#   -linux, --linux-style
+	#   -orig, --original
+	# astyle
+	# clang-format -i --style=
+	#   LLVM
+	#   Google
+	#   Chromium
+	#   Mozilla
+	#   WebKit

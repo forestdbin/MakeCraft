@@ -34,3 +34,10 @@ sudo apt-get install clang-tidy
 sudo apt-get install clang-format
 sudo apt-get install clang-tools
 ```
+
+
+## Formatter
+```
+sudo apt-get install indent
+sudo apt-get install astyle
+```
