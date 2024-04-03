@@ -3,6 +3,7 @@ include Makefile_compiler.mk
 include Makefile_flags.mk
 include Makefile_headers.mk
 include Makefile_libs.mk
+include Makefile_install.mk
 include Makefile_utils.mk
 
 
@@ -141,3 +142,16 @@ format :
 	#   Chromium
 	#   Mozilla
 	#   WebKit
+
+
+.PHONY : install
+install : clean
+	$(MAKE) build BUILD_TYPE=RELEASE
+	sudo install -d $(INSTALL_DIR)
+	sudo install -t $(INSTALL_DIR) $($(project)_exe)
+	sudo ln -sf ../$(project)/$($(project)_exe) $(INSTALL_PREFIX)/bin
+
+.PHONY : uninstall
+uninstall :
+	sudo rm -i $(INSTALL_PREFIX)/bin/$($(project)_exe)
+	sudo rm -i -r $(INSTALL_DIR)

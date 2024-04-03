@@ -1,2 +1,6 @@
+*.d
+*.o
+*.gch
+
 ext/sources
 ext/googletest

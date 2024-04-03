@@ -14,6 +14,8 @@ help :
 	echo -e '\tprofile'
 	echo -e '\tlint'
 	echo -e '\tformat'
+	echo -e '\tinstall'
+	echo -e '\tuninstall'
 
 .PHONY .SILENT : dump
 dump :
@@ -31,6 +33,10 @@ dump :
 
 	echo USE_COMMON_HEADER: $(USE_COMMON_HEADER)
 	echo PRE_COMPILE_HEADER: $(PRE_COMPILE_HEADER)
+	echo
+
+	echo INSTALL_PREFIX: $(INSTALL_PREFIX)
+	echo INSTALL_DIR: $(INSTALL_DIR)
 	echo
 
 	echo USE_GOOGLE_TEST: $(USE_GOOGLE_TEST)
