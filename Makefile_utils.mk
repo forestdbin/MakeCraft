@@ -17,6 +17,7 @@ help :
 	echo -e '\tinstall'
 	echo -e '\tuninstall'
 	echo -e '\tpackage'
+	echo -e '\tsources'
 
 .PHONY .SILENT : dump
 dump :

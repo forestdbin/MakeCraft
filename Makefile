@@ -14,6 +14,7 @@ $(project)_common_header = common.h
 $(project)_pre_compile_headers = $($(project)_common_header) # $(wildcard *.h)
 $(project)_pre_compiled_headers = $($(project)_pre_compile_headers:.h=.h.gch)
 
+$(project)_headers = greet.h
 $(project)_sources = main.cpp greet.cpp
 $(project)_objects = $(patsubst %.cpp,%.o,$($(project)_sources))
 $(project)_depends = $($(project)_sources:.cpp=.d)
@@ -28,7 +29,8 @@ $(project)_clean = \
 	*.gcno *.gcda *.gcov *.info \
 	gmon.out gmon.sum \
 	*~ *.orig \
-	$(project).tar.gz
+	$(project).tar.gz \
+	$(project).sources.tar.gz
 
 $(project)_test = test_$(project)
 $(project)_test_sources = test_main.cpp
@@ -167,3 +169,11 @@ package : clean
 	mv package $(project)
 	tar zcf $(project).tar.gz $(project)
 	rm -rf $(project)
+
+.PHONY : sources
+sources :
+	rm -rf $(project)_sources
+	mkdir -p $(project)_sources
+	cp $($(project)_common_header) $($(project)_headers) $($(project)_sources) $(project)_sources
+	tar zcf $(project).sources.tar.gz $(project)_sources
+	rm -rf $(project)_sources
