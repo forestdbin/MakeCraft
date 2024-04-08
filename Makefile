@@ -27,7 +27,8 @@ $(project)_clean = \
 	$($(project)_test_objects) \
 	*.gcno *.gcda *.gcov *.info \
 	gmon.out gmon.sum \
-	*~ *.orig
+	*~ *.orig \
+	$(project).tar.gz
 
 $(project)_test = test_$(project)
 $(project)_test_sources = test_main.cpp
@@ -155,3 +156,14 @@ install : clean
 uninstall :
 	sudo rm -i $(INSTALL_PREFIX)/bin/$($(project)_exe)
 	sudo rm -i -r $(INSTALL_DIR)
+
+
+.PHONY : package
+package : clean
+	$(MAKE) build BUILD_TYPE=RELEASE
+	rm -rf package
+	mkdir -p package
+	mv $($(project)_exe) package
+	mv package $(project)
+	tar zcf $(project).tar.gz $(project)
+	rm -rf $(project)

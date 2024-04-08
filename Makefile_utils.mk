@@ -16,6 +16,7 @@ help :
 	echo -e '\tformat'
 	echo -e '\tinstall'
 	echo -e '\tuninstall'
+	echo -e '\tpackage'
 
 .PHONY .SILENT : dump
 dump :
