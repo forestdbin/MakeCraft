@@ -42,6 +42,7 @@ dump :
 	echo
 
 	echo USE_GOOGLE_TEST: $(USE_GOOGLE_TEST)
+	echo USE_NLOHMANN_JSON: $(USE_NLOHMANN_JSON)
 	echo
 
 	echo project: $(project)
