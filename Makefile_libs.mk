@@ -18,3 +18,19 @@ CXXFLAGS_JSON = $(shell PKG_CONFIG_PATH=ext/json/share/pkgconfig pkg-config --cf
 CXXFLAGS += $(CXXFLAGS_JSON)
 
 endif
+
+
+# Boost
+USE_BOOST ?= TRUE
+
+ifeq ($(USE_BOOST),TRUE)
+
+CXXFLAGS_BOOST = -I ~/git/MakeCraft/ext/boost/include
+LDFLAGS_BOOST = -L ~/git/MakeCraft/ext/boost/lib
+LDLIBS_BOOST =
+
+CXXFLAGS += $(CXXFLAGS_BOOST)
+LDFLAGS += $(LDFLAGS_BOOST)
+LDLIBS += $(LDLIBS_BOOST)
+
+endif

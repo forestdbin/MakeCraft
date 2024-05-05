@@ -47,7 +47,7 @@ all : run
 build : $($(project)_pre_compiled_headers) $($(project)_exe)
 
 $($(project)_exe) : $($(project)_objects)
-	$(CXX) -o $@ $(LDFALGS) $^ $(LDLIBS)
+	$(CXX) -o $@ $(LDFLAGS) $^ $(LDLIBS)
 
 %.o : %.cpp
 	$(CXX) -o $@ $(CXXFLAGS) -c $<
@@ -77,7 +77,7 @@ test : $($(project)_pre_compiled_headers) $($(project)_test)
 $($(project)_test) : CXXFLAGS += $(CXXFLAGS_GOOGLETEST)
 $($(project)_test) : LDLIBS += $(LDLIBS_GOOGLETEST)
 $($(project)_test) : $($(project)_test_objects)
-	$(CXX) -o $@ $(LDFALGS) $^ $(LDLIBS)
+	$(CXX) -o $@ $(LDFLAGS) $^ $(LDLIBS)
 
 
 .PHONY : coverage

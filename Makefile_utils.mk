@@ -30,7 +30,7 @@ dump :
 	echo BUILD_TYPE: $(BUILD_TYPE)
 	echo -e \\tCFLAGS: $(CFLAGS)
 	echo -e \\tCXXFLAGS: $(CXXFLAGS)
-	echo -e \\tLDFALGS: $(LDFALGS)
+	echo -e \\tLDFLAGS: $(LDFLAGS)
 	echo -e \\tLDLIBS: $(LDLIBS)
 
 	echo USE_COMMON_HEADER: $(USE_COMMON_HEADER)
@@ -43,6 +43,7 @@ dump :
 
 	echo USE_GOOGLE_TEST: $(USE_GOOGLE_TEST)
 	echo USE_NLOHMANN_JSON: $(USE_NLOHMANN_JSON)
+	echo USE_BOOST: $(USE_BOOST)
 	echo
 
 	echo project: $(project)
