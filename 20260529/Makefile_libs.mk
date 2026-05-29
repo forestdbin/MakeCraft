@@ -25,8 +25,8 @@ USE_BOOST ?= TRUE
 
 ifeq ($(USE_BOOST),TRUE)
 
-CXXFLAGS_BOOST = -I ~/git/MakeCraft/ext/boost/include
-LDFLAGS_BOOST = -L ~/git/MakeCraft/ext/boost/lib
+CXXFLAGS_BOOST = -I ext/boost/include
+LDFLAGS_BOOST = -L ext/boost/lib
 LDLIBS_BOOST =
 
 CXXFLAGS += $(CXXFLAGS_BOOST)
