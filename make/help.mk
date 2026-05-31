@@ -13,6 +13,12 @@ help :
 
 .PHONY .SILENT : dump
 dump :
+	echo COMPILER: $(COMPILER)
+	echo -e \\tCC: $(CC)
+	echo -e \\tCXX: $(CXX)
+	echo -e \\tTOOL_PATH: $(TOOL_PATH)
+	echo -e \\tTOOL_PREFIX: $(TOOL_PREFIX)
+
 	echo BUILD_TYPE: $(BUILD_TYPE)
 	echo -e \\tCFLAGS: $(CFLAGS)
 	echo -e \\tCXXFLAGS: $(CXXFLAGS)
