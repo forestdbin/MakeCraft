@@ -6,3 +6,13 @@ $(hello_exe) : $(hello_objects)
 
 %.o : %.cpp
 	$(CXX) -o $@ $(CXXFLAGS) -c $<
+
+# auto depends
+%.d : %.cpp
+	# $(CXX) -MM -MF $@ $(CXXFLAGS) $^
+	@set -e; rm -f $@; \
+     $(CXX) -MM $(CXXFLAGS) $< > $@.$$$$; \
+     sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+     rm -f $@.$$$$
+
+include $(hello_depends)

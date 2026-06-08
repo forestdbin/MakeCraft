@@ -30,4 +30,5 @@ dump :
 	echo hello_exe: $(hello_exe)
 	echo hello_sources: $(hello_sources)
 	echo hello_objects: $(hello_objects)
+	echo hello_depends: $(hello_depends)
 	echo hello_clean: $(hello_clean)
