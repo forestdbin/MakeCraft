@@ -1,3 +1,9 @@
 # top level variables
 COMPILER = GCC
 BUILD_TYPE = DEBUG
+
+
+# libraries
+USE_BOOST = TRUE
+USE_GOOGLE_TEST = TRUE
+USE_NLOHMANN_JSON = TRUE

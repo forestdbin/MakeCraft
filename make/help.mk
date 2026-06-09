@@ -26,6 +26,11 @@ dump :
 	echo -e \\tLDLIBS: $(LDLIBS)
 	echo
 
+	echo USE_BOOST: $(USE_BOOST)
+	echo USE_GOOGLE_TEST: $(USE_GOOGLE_TEST)
+	echo USE_NLOHMANN_JSON: $(USE_NLOHMANN_JSON)
+	echo
+
 	echo project: $(project)
 	echo hello_exe: $(hello_exe)
 	echo hello_sources: $(hello_sources)
