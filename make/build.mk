@@ -16,3 +16,8 @@ $(hello_exe) : $(hello_objects)
      rm -f $@.$$$$
 
 include $(hello_depends)
+
+
+.PHONY : release
+release : clean
+	$(MAKE) build BUILD_TYPE=RELEASE

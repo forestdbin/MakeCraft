@@ -5,4 +5,5 @@ hello_clean = \
 
 .PHONY .SILENT : clean
 clean :
+	-@ echo clean
 	-@ rm -rf $(hello_clean)

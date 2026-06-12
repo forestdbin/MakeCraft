@@ -1,6 +1,7 @@
 # top level variables
 COMPILER = GCC
 BUILD_TYPE = DEBUG
+INSTALL_PREFIX = /usr/local
 
 
 # libraries
