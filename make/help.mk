@@ -10,6 +10,7 @@ help :
 	echo
 
 	echo -e '\ttest'
+	echo -e '\tcoverage'
 	echo
 
 	echo -e '\tinstall'
@@ -53,4 +54,4 @@ dump :
 	echo hello_test_sources: $(hello_test_sources)
 	echo hello_test_objects: $(hello_test_objects)
 	echo hello_test_depends: $(hello_test_depends)
-	echo hello_clean: $(hello_clean)
+	echo hello_clean: $(hello_clean) $(hello_cov)

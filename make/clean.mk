@@ -6,7 +6,12 @@ hello_clean = \
 	$(hello_test_objects) \
 	$(hello_test_depends)
 
+hello_cov = \
+	*.gcno \
+	*.gcda \
+	*.gcov
+
 .PHONY .SILENT : clean
 clean :
 	-@ echo clean
-	-@ rm -rf $(hello_clean)
+	-@ rm -rf $(hello_clean) $(hello_cov)

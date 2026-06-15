@@ -8,6 +8,7 @@ include make/build.mk
 include make/run.mk
 
 include make/test.mk
+include make/coverage.mk
 
 include make/install.mk
 
