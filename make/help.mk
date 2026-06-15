@@ -3,8 +3,17 @@ help :
 	echo make $(project)
 	echo -e '\tall'
 	echo -e '\tbuild'
+	echo -e '\trelease'
 	echo -e '\trun'
+	echo -e '\tdebug'
 	echo -e '\tclean'
+	echo
+
+	echo -e '\ttest'
+	echo
+
+	echo -e '\tinstall'
+	echo -e '\tuninstall'
 	echo
 
 	echo -e '\thelp'
@@ -40,4 +49,8 @@ dump :
 	echo hello_sources: $(hello_sources)
 	echo hello_objects: $(hello_objects)
 	echo hello_depends: $(hello_depends)
+	echo hello_test: $(hello_test)
+	echo hello_test_sources: $(hello_test_sources)
+	echo hello_test_objects: $(hello_test_objects)
+	echo hello_test_depends: $(hello_test_depends)
 	echo hello_clean: $(hello_clean)

@@ -7,6 +7,8 @@ include make/project.mk
 include make/build.mk
 include make/run.mk
 
+include make/test.mk
+
 include make/install.mk
 
 include make/clean.mk
