@@ -12,6 +12,7 @@ help :
 	echo -e '\ttest'
 	echo -e '\tcoverage'
 	echo -e '\tlcov'
+	echo -e '\tgcovr'
 	echo
 
 	echo -e '\tinstall'

@@ -11,7 +11,8 @@ hello_cov = \
 	*.gcda \
 	*.gcov \
 	lcov.info \
-	lcov_output
+	lcov_output \
+	gcovr_output
 
 .PHONY .SILENT : clean
 clean :

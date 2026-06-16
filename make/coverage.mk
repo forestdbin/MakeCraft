@@ -33,3 +33,18 @@ lcov : coverage
 	[ -d lcov_output ] && rm -rf lcov_output/* || mkdir lcov_output
 	genhtml -o lcov_output lcov.info --branch-coverage
 	# python3 -m http.server --directory lcov_output
+
+
+# gcovr deletes *.gcov after reporting
+#  -s, --print-summary
+#  -b, --branches
+#  -r ROOT, --root ROOT
+
+.PHONY : gcovr
+gcovr : coverage
+	gcovr -s # --exclude-directories test
+	gcovr -b
+	# gcovr -r . # -b
+	[ -d gcovr_output ] && rm -rf gcovr_output/* || mkdir gcovr_output
+	gcovr -r . --html --html-details -o gcovr_output/index.html
+	# python3 -m http.server --directory gcovr_output
