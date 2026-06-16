@@ -9,7 +9,9 @@ hello_clean = \
 hello_cov = \
 	*.gcno \
 	*.gcda \
-	*.gcov
+	*.gcov \
+	lcov.info \
+	lcov_output
 
 .PHONY .SILENT : clean
 clean :

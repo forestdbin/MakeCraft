@@ -19,5 +19,17 @@ coverage : CXXFLAGS += --coverage
 coverage : LDLIBS += --coverage
 coverage : $(hello_exe)
 	./$(hello_exe)
-	gcov $(hello_sources)
-	view *.gcov
+	gcov -m -r $(hello_sources)
+	# view *.gcov
+
+
+# lcov collects coverage data (*.gcda)
+# genhtml creates HTML pages
+
+.PHONY : lcov
+lcov : coverage
+	lcov -c -d . -o lcov.info --rc lcov_branch_coverage=1 # --no-recursion
+	lcov -l lcov.info --rc lcov_branch_coverage=1
+	[ -d lcov_output ] && rm -rf lcov_output/* || mkdir lcov_output
+	genhtml -o lcov_output lcov.info --branch-coverage
+	# python3 -m http.server --directory lcov_output
