@@ -14,7 +14,10 @@ hello_cov = \
 	lcov_output \
 	gcovr_output
 
+hello_prof = \
+	gmon.out
+
 .PHONY .SILENT : clean
 clean :
 	-@ echo clean
-	-@ rm -rf $(hello_clean) $(hello_cov)
+	-@ rm -rf $(hello_clean) $(hello_cov) $(hello_prof)
