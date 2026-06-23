@@ -18,7 +18,11 @@ hello_cov = \
 hello_prof = \
 	gmon.out
 
+hello_format = \
+	*~ \
+	*.orig
+
 .PHONY .SILENT : clean
 clean :
 	-@ echo clean
-	-@ rm -rf $(hello_clean) $(hello_cov) $(hello_prof)
+	-@ rm -rf $(hello_clean) $(hello_cov) $(hello_prof) $(hello_format)

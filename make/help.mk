@@ -16,6 +16,7 @@ help :
 	echo -e '\tgcovr'
 	echo -e '\tprofile'
 	echo -e '\tlint'
+	echo -e '\tformat'
 	echo
 
 	echo -e '\tinstall'
@@ -59,4 +60,4 @@ dump :
 	echo hello_test_sources: $(hello_test_sources)
 	echo hello_test_objects: $(hello_test_objects)
 	echo hello_test_depends: $(hello_test_depends)
-	echo hello_clean: $(hello_clean) $(hello_cov) $(hello_prof)
+	echo hello_clean: $(hello_clean) $(hello_cov) $(hello_prof) $(hello_format)
