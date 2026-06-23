@@ -10,6 +10,7 @@ include make/run.mk
 include make/test.mk
 include make/coverage.mk
 include make/profile.mk
+include make/lint.mk
 
 include make/install.mk
 

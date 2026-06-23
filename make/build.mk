@@ -21,3 +21,9 @@ include $(hello_depends)
 .PHONY : release
 release : clean
 	$(MAKE) build BUILD_TYPE=RELEASE
+
+
+# sudo apt install bear
+.PHONY : gen_compile_commands
+gen_compile_commands : clean
+	bear $(MAKE) build

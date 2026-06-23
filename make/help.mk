@@ -4,6 +4,7 @@ help :
 	echo -e '\tall'
 	echo -e '\tbuild'
 	echo -e '\trelease'
+	echo -e '\tgen_compile_commands'
 	echo -e '\trun'
 	echo -e '\tdebug'
 	echo -e '\tclean'
@@ -14,6 +15,7 @@ help :
 	echo -e '\tlcov'
 	echo -e '\tgcovr'
 	echo -e '\tprofile'
+	echo -e '\tlint'
 	echo
 
 	echo -e '\tinstall'

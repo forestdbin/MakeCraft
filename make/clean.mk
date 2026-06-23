@@ -4,7 +4,8 @@ hello_clean = \
 	$(hello_depends) \
 	$(hello_test) \
 	$(hello_test_objects) \
-	$(hello_test_depends)
+	$(hello_test_depends) \
+	compile_commands.json
 
 hello_cov = \
 	*.gcno \
