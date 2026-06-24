@@ -21,6 +21,8 @@ help :
 
 	echo -e '\tinstall'
 	echo -e '\tuninstall'
+	echo -e '\tpackage'
+	echo -e '\tsources'
 	echo
 
 	echo -e '\thelp'
